@@ -33,7 +33,6 @@ namespace infra_api
       {
         c.SwaggerDoc("v1", new OpenApiInfo { Title = "infra_api", Version = "v1" });
       });
-      services.AddHealthChecks().AddCheck<SampleHealthCheck>("Sample");
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,13 +53,11 @@ namespace infra_api
 
       app.UseAuthorization();
 
-      app.UseHealthChecks("/healthz");
-
       app.UseEndpoints(endpoints =>
       {
         endpoints.MapGet("/", async context =>
         {
-          await context.Response.WriteAsync("infa-api is running!");
+          await context.Response.WriteAsync("infra-api is running!");
         });
         endpoints.MapControllers();
       });

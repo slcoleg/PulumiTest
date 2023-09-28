@@ -15,20 +15,12 @@ using Pulumi.Aws.Ecs;
 
 class FargateStack : Stack
 {
-  //[Output] public Output<ImmutableArray<string>> PrivateSubnetIds { get; private set; }
-  //[Output] public Output<ImmutableArray<string>> PublicSubnetIds { get; private set; }
-  //[Output] public Output<string> VpcId { get; set; }
 
   public FargateStack()
   {
     var webSrcFolder = "../infra-web";
     var apiSrcFolder = "../infra-api";
     
-    //var customVpc = new Awsx.Ec2.Vpc("custom");
-
-    //this.VpcId = customVpc.VpcId;
-    //this.PublicSubnetIds = customVpc.PublicSubnetIds;
-    //this.PrivateSubnetIds = customVpc.PrivateSubnetIds;
 
     // Read back the default VPC and public subnets, which we will use.
     var vpc = new Ec2.DefaultVpc("default", new()
@@ -52,21 +44,6 @@ class FargateStack : Stack
         }
       }
     });
-
-    //var vpcId = Ec2.GetVpc.Invoke(new Ec2.GetVpcInvokeArgs { Default = true }).Apply(vpc => vpc.Id);
-    //var vpcCidr = Ec2.GetVpc.Invoke(new Ec2.GetVpcInvokeArgs { Default = true }).Apply(vpc => vpc.CidrBlock);
-    //var vpcMainRT = Ec2.GetVpc.Invoke(new Ec2.GetVpcInvokeArgs { Default = true }).Apply(vpc => vpc.MainRouteTableId);
-    //var subnets = Ec2.GetSubnets.Invoke(new Ec2.GetSubnetsInvokeArgs
-    //{
-    //  Filters = new[]
-    //  {
-    //    new Ec2.Inputs.GetSubnetsFilterInputArgs
-    //    {
-    //        Name = "vpc-id",
-    //        Values = new[] { vpcId}
-    //    }
-    //  }
-    //});
 
     var subnetIds = subnets.Apply(s => s.Ids);
 
@@ -427,10 +404,8 @@ class FargateStack : Stack
 
     // Export the resulting web address.
     Url = Output.Format($"http://{webLb.DnsName}");
-    VPC = vpcCidr;
   }
 
   [Output] public Output<string> Url { get; set; }
   [Output] public Output<string> ApiUrl { get; set; }
-  [Output] public Output<string> VPC { get; set; }
 }

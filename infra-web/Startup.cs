@@ -39,14 +39,6 @@ namespace infra_web
                     await context.Response.WriteAsync("healthy");
                 });
 
-                endpoints.MapGet("/api", async context =>
-                {
-                    var apiAddress = Environment.GetEnvironmentVariable("ApiAddress");
-                    var apiPort = Environment.GetEnvironmentVariable("ApiPort");
-                    var apiMethod = Environment.GetEnvironmentVariable("ApiMethod");
-                    await context.Response.WriteAsync($"Api Connection: {apiAddress}:{apiPort}/{apiMethod}");
-                });
-                
                 endpoints.MapGet("/weather", async context =>
                 {
                     var apiAddress = Environment.GetEnvironmentVariable("ApiAddress") ?? "n/a";
