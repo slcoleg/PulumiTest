@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aws.Fargate", "devops\Aws.Fargate.csproj", "{A215C09E-8D07-4C68-ADC3-9971867A89DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A215C09E-8D07-4C68-ADC3-9971867A89DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A215C09E-8D07-4C68-ADC3-9971867A89DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A215C09E-8D07-4C68-ADC3-9971867A89DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A215C09E-8D07-4C68-ADC3-9971867A89DB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0CB27AA8-76B6-4F7E-BCD8-A35E2BA870E6}
+	EndGlobalSection
+EndGlobal
